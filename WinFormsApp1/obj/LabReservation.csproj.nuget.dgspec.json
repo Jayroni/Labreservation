@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jane\\source\\repos\\LabReservation\\WinFormsApp1\\LabReservation.csproj": {}
+    "C:\\Users\\CISCO-ADMIN\\source\\repos\\Labreservation\\WinFormsApp1\\LabReservation.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jane\\source\\repos\\LabReservation\\WinFormsApp1\\LabReservation.csproj": {
+    "C:\\Users\\CISCO-ADMIN\\source\\repos\\Labreservation\\WinFormsApp1\\LabReservation.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jane\\source\\repos\\LabReservation\\WinFormsApp1\\LabReservation.csproj",
+        "projectUniqueName": "C:\\Users\\CISCO-ADMIN\\source\\repos\\Labreservation\\WinFormsApp1\\LabReservation.csproj",
         "projectName": "LabReservation",
-        "projectPath": "C:\\Users\\jane\\source\\repos\\LabReservation\\WinFormsApp1\\LabReservation.csproj",
-        "packagesPath": "C:\\Users\\jane\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jane\\source\\repos\\LabReservation\\WinFormsApp1\\obj\\",
+        "projectPath": "C:\\Users\\CISCO-ADMIN\\source\\repos\\Labreservation\\WinFormsApp1\\LabReservation.csproj",
+        "packagesPath": "C:\\Users\\CISCO-ADMIN\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\CISCO-ADMIN\\source\\repos\\Labreservation\\WinFormsApp1\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\jane\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\CISCO-ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -30,8 +30,7 @@
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net10.0-windows": {
-            "framework": "net10.0-windows7.0",
+          "net10.0-windows7.0": {
             "targetAlias": "net10.0-windows",
             "projectReferences": {}
           }
@@ -49,8 +48,7 @@
         "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
-        "net10.0-windows": {
-          "framework": "net10.0-windows7.0",
+        "net10.0-windows7.0": {
           "targetAlias": "net10.0-windows",
           "dependencies": {
             "MySql.Data": {
@@ -77,7 +75,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.203/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.201/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",

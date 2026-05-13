@@ -7,7 +7,7 @@ namespace LabReservation
 {
     public class ConnectionSql
     {
-        private string connectionString = "server=localhost;uid=root;pwd=trisha022106;database=appsdev";
+        private string connectionString = "server=localhost;uid=root;pwd=ciscolabu;database=appsdev";
 
         public MySqlConnection GetConnection()
         {

@@ -50,10 +50,11 @@ namespace LabReservation.repository
                 using (MySqlConnection con = dbConnection.GetConnection())
                 {
                     string query = "SELECT COUNT(*) FROM reservations " +
-                                   "WHERE lab_room = @room " +
-                                   "AND reservation_date = @date " +
-                                   "AND STR_TO_DATE(@start, '%h:%i %p') < STR_TO_DATE(end_time, '%h:%i %p') " +
-                                   "AND STR_TO_DATE(@end, '%h:%i %p') > STR_TO_DATE(start_time, '%h:%i %p')";
+                           "WHERE lab_room = @room " +
+                           "AND status = 'Active' " +
+                           "AND reservation_date = @date " +
+                           "AND STR_TO_DATE(@start, '%h:%i %p') < STR_TO_DATE(end_time, '%h:%i %p') " +
+                           "AND STR_TO_DATE(@end, '%h:%i %p') > STR_TO_DATE(start_time, '%h:%i %p')";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, con))
                     {
@@ -76,28 +77,7 @@ namespace LabReservation.repository
             }
         }
 
-        public void DeletePastReservations()
-        {
-            try
-            {
-                using (MySqlConnection con = dbConnection.GetConnection())
-                {
-                    string query = "DELETE FROM reservations " +
-                                   "WHERE reservation_date < CURDATE() " +
-                                   "OR (reservation_date = CURDATE() AND STR_TO_DATE(end_time, '%h:%i %p') < CURTIME())";
-
-                    using (MySqlCommand cmd = new MySqlCommand(query, con))
-                    {
-                        con.Open();
-                        cmd.ExecuteNonQuery(); 
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Auto-Cleanup Error: " + ex.Message);
-            }
-        }
+        
 
         public bool HasUserAlreadyBooked(string name)
         {
@@ -191,7 +171,8 @@ namespace LabReservation.repository
             {
                 using (MySqlConnection con = dbConnection.GetConnection())
                 {
-                    string query = "DELETE FROM reservations WHERE LOWER(reserver_name) = LOWER(@name)";
+                    // Instead of deleting, we change the status to 'Cancelled'
+                    string query = "UPDATE reservations SET status = 'Cancelled' WHERE LOWER(reserver_name) = LOWER(@name)";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, con))
                     {
@@ -218,12 +199,14 @@ namespace LabReservation.repository
             {
                 using (MySqlConnection con = dbConnection.GetConnection())
                 {
-                    string query = "SELECT * FROM reservations";
+                    // Add "status = 'Active'" to the filter
+                    string query = "SELECT * FROM reservations " +
+                                   "WHERE status = 'Active' AND " +
+                                   "(reservation_date > CURDATE() OR (reservation_date = CURDATE() AND STR_TO_DATE(end_time, '%h:%i %p') >= CURTIME()))";
 
                     using (MySqlCommand cmd = new MySqlCommand(query, con))
                     {
                         con.Open();
-
                         using (MySqlDataAdapter adapter = new MySqlDataAdapter(cmd))
                         {
                             adapter.Fill(dt);

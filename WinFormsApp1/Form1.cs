@@ -1,6 +1,7 @@
 using LabReservation.controller;
 using LabReservation.model;
 using System.Data;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace LabReservation
 {
@@ -79,7 +80,8 @@ namespace LabReservation
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            reservationController.AutoCleanUp();
+            
+
 
             // Set today's date in the readonly textbox
             dateTxt.Text = DateTime.Today.ToString("dddd, MMMM d, yyyy");

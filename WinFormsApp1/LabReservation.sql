@@ -12,3 +12,5 @@ CREATE TABLE reservations (
 );
 
 SELECT * FROM reservations;
+
+ALTER TABLE reservations ADD COLUMN status VARCHAR(20) DEFAULT 'Active';
