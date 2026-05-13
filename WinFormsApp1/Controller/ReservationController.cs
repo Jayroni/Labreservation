@@ -1,6 +1,4 @@
 ﻿using LabReservation.model;
-using LabReservation.model;
-using LabReservation.repository;
 using LabReservation.repository;
 using System;
 using System.Data;
@@ -70,10 +68,7 @@ namespace LabReservation.controller
             return repository.AddReservation(res);
         }
 
-        public void AutoCleanUp()
-        {
-            repository.DeletePastReservations();
-        }
+        
 
         public Reservation GetReservationForUpdate(string name)
         {
